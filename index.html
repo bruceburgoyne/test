@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Site name</title>
+  <meta name="description" content="A short description of the site for search results.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Site name</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Welcome</p>
+        <h1>A clear headline that says what you do</h1>
+        <p class="lead">One or two sentences that explain who this is for and why it matters to them.</p>
+        <a class="button" href="/contact">Get in touch</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-3">
+        <article class="card">
+          <h2>First point</h2>
+          <p>A short paragraph on the first thing visitors should know.</p>
+        </article>
+        <article class="card">
+          <h2>Second point</h2>
+          <p>A short paragraph on the second thing visitors should know.</p>
+        </article>
+        <article class="card">
+          <h2>Third point</h2>
+          <p>A short paragraph on the third thing visitors should know.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span data-year></span> Site name</p>
+    </div>
+  </footer>
+  <script>document.querySelector('[data-year]').textContent = new Date().getFullYear();</script>
+</body>
+</html>

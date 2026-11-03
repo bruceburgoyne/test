@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Site name</title>
+  <meta name="description" content="About Site name.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Site name</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about" aria-current="page">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-intro">
+      <div class="container narrow">
+        <h1>About</h1>
+        <p class="lead">A short introduction to who you are and what you stand for.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow prose">
+        <h2>Our story</h2>
+        <p>Explain how this started and what has shaped the work since. Keep it specific and factual.</p>
+
+        <h2>What we do</h2>
+        <p>Describe the services or offer in plain language, with the outcomes people can expect.</p>
+
+        <h2>How we work</h2>
+        <p>Set out the principles or approach that make working together different.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span data-year></span> Site name</p>
+    </div>
+  </footer>
+  <script>document.querySelector('[data-year]').textContent = new Date().getFullYear();</script>
+</body>
+</html>
