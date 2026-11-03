@@ -1,0 +1,17 @@
+---
+import ArrowIcon from './ArrowIcon.astro';
+
+const { heading, text } = Astro.props;
+---
+<section class="cta-band">
+  <div class="container cta-inner">
+    <h2 class="reveal">{heading}</h2>
+    <div class="reveal">
+      {text && <p>{text}</p>}
+      <a class="button" href="/contact">
+        Start a conversation
+        <ArrowIcon />
+      </a>
+    </div>
+  </div>
+</section>
