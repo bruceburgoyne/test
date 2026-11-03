@@ -2,14 +2,42 @@ const form = document.getElementById('contact-form');
 const status = form.querySelector('.form-status');
 const button = form.querySelector('button[type="submit"]');
 
+const messages = {
+  name: 'Please enter your name.',
+  email: 'Please enter a valid email address, for example name@example.com.',
+  message: 'Please tell us a little about what you need.',
+};
+
+function setError(field, text) {
+  const error = document.getElementById(`${field.id}-error`);
+  error.textContent = text;
+  field.setAttribute('aria-invalid', text ? 'true' : 'false');
+}
+
+function validateField(field) {
+  const valid = field.checkValidity() && field.value.trim() !== '';
+  setError(field, valid ? '' : messages[field.name]);
+  return valid;
+}
+
+const fields = Object.keys(messages).map((name) => form.elements[name]);
+
+// Re-check a field once the person has left it, and clear errors as they fix them.
+fields.forEach((field) => {
+  field.addEventListener('blur', () => { if (field.value) validateField(field); });
+  field.addEventListener('input', () => {
+    if (field.getAttribute('aria-invalid') === 'true') validateField(field);
+  });
+});
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   status.textContent = '';
   status.className = 'form-status';
 
-  if (!form.checkValidity()) {
-    status.textContent = 'Please fill in your name, a valid email address and a message.';
-    status.classList.add('is-error');
+  const invalid = fields.filter((field) => !validateField(field));
+  if (invalid.length) {
+    invalid[0].focus();
     return;
   }
 
@@ -26,7 +54,8 @@ form.addEventListener('submit', async (event) => {
     if (!response.ok) throw new Error(result.error || 'Something went wrong.');
 
     form.reset();
-    status.textContent = 'Thank you. Your message has been sent.';
+    fields.forEach((field) => field.removeAttribute('aria-invalid'));
+    status.textContent = 'Thank you. Your message has been sent and we will be in touch.';
     status.classList.add('is-success');
   } catch (error) {
     status.textContent = `${error.message} Please try again.`;

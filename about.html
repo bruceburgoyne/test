@@ -4,13 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Site name</title>
-  <meta name="description" content="About Site name.">
+  <meta name="description" content="Who we are, how we started and the principles behind our work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Public+Sans:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">Site name</a>
+      <a class="wordmark" href="/">Site name</a>
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="/">Home</a></li>
@@ -18,36 +24,96 @@
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
+      <a class="button button-small header-cta" href="/contact">Start a conversation</a>
     </div>
   </header>
 
-  <main>
-    <section class="page-intro">
-      <div class="container narrow">
-        <h1>About</h1>
-        <p class="lead">A short introduction to who you are and what you stand for.</p>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">About</p>
+        <h1>An independent consultancy that values evidence over noise.</h1>
+        <p class="lead">We work with organisations that want to be understood clearly by the people who matter to them.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container narrow prose">
-        <h2>Our story</h2>
-        <p>Explain how this started and what has shaped the work since. Keep it specific and factual.</p>
+      <div class="container split">
+        <div class="split-label reveal">
+          <p class="eyebrow">01 &middot; Our story</p>
+        </div>
+        <div class="prose reveal">
+          <p class="drop-cap">Our story begins with [how the business started, who founded it and the problem they set out to solve. Keep it specific and factual.]</p>
+          <p>[Describe how the work has grown since, the kinds of organisations you support and what has stayed the same along the way.]</p>
+          <p>[Close with where you are today: the size of the team, where you are based and what you are focused on next.]</p>
+        </div>
+      </div>
+    </section>
 
-        <h2>What we do</h2>
-        <p>Describe the services or offer in plain language, with the outcomes people can expect.</p>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">02 &middot; How we work</p>
+          <h2>Three principles guide every project.</h2>
+        </div>
+        <ol class="principles">
+          <li class="principle reveal">
+            <span class="index-num">01</span>
+            <h3>Start with evidence</h3>
+            <p>We look at what the data and your audiences tell us before we recommend anything.</p>
+          </li>
+          <li class="principle reveal">
+            <span class="index-num">02</span>
+            <h3>Say less, mean more</h3>
+            <p>Plain language travels further. We cut what does not help the reader decide or act.</p>
+          </li>
+          <li class="principle reveal">
+            <span class="index-num">03</span>
+            <h3>Work as one team</h3>
+            <p>We work alongside your people, share what we learn and leave you able to carry it forward.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-        <h2>How we work</h2>
-        <p>Set out the principles or approach that make working together different.</p>
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <h2 class="reveal">Want to know if we are the right fit?</h2>
+        <div class="reveal">
+          <p>Tell us a little about your organisation and what you are hoping to achieve.</p>
+          <a class="button" href="/contact">
+            Start a conversation
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="wordmark" href="/">Site name</a>
+        <p class="footer-note">[One line on who you are and where you work.]</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="footer-label">Pages</p>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer-label">Get in touch</p>
+        <a class="footer-email" href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+    </div>
     <div class="container">
-      <p>&copy; <span data-year></span> Site name</p>
+      <div class="footer-base"><p>&copy; <span data-year></span> Site name. All rights reserved.</p></div>
     </div>
   </footer>
-  <script>document.querySelector('[data-year]').textContent = new Date().getFullYear();</script>
+
+  <script src="/site.js" defer></script>
 </body>
 </html>

@@ -7,11 +7,24 @@ A three-page static site (Home, About, Contact) hosted on Vercel. The contact fo
 | Path | Purpose |
 | --- | --- |
 | `index.html`, `about.html`, `contact.html` | The three pages |
-| `styles.css` | Shared styles (light and dark mode) |
+| `styles.css` | Shared styles and design tokens (light and dark mode) |
+| `site.js` | Footer year and subtle scroll reveal |
 | `contact.js` | Sends the contact form to `/api/contact` |
 | `api/contact.js` | Vercel function that validates and saves the message to Supabase |
 | `supabase/migrations/` | SQL for the `contact_messages` table |
 | `vercel.json` | Clean URLs (`/about` rather than `/about.html`) |
+
+## Design
+
+Generated with the [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) skill for a warm, editorial consultancy site:
+
+- **Page pattern:** Trust & Authority + Conversion (credibility hero, proof stats, services, clear call to action)
+- **Style:** Editorial Grid / Magazine (numbered sections, rules, pull quote, drop cap) with a Nature Distilled palette
+- **Type:** Libre Bodoni for headings, Public Sans for body text (Google Fonts)
+- **Colour:** cream background, terracotta primary, warm dark mode; tokens are at the top of `styles.css`
+- **Accessibility:** skip link, visible focus rings, 44px touch targets, inline form errors, reduced-motion support
+
+Text in [square brackets] and the `00` stats are placeholders to replace with real, verified content before launch.
 
 ## Set up Supabase
 
