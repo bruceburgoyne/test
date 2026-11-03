@@ -209,16 +209,44 @@ a:hover { color: var(--color-primary-hover); }
 }
 .lead { font-size: clamp(1.15rem, 1.6vw, 1.3rem); color: var(--color-muted-foreground); max-width: 46ch; }
 
-/* Hero */
-.hero { padding: var(--space-5) 0 var(--space-5); border-bottom: 1px solid var(--color-border); }
-.hero-grid { display: grid; gap: var(--space-4); }
-@media (min-width: 960px) {
-  .hero { padding: var(--space-6) 0; }
-  .hero-grid { grid-template-columns: 7fr 4fr; align-items: end; gap: var(--space-5); }
-  .hero-aside { padding-bottom: 12px; }
-}
-.hero h1 { margin: 0; }
+/* Hero: text sits on the content grid, image bleeds to the right edge of the browser */
+.hero { border-bottom: 1px solid var(--color-border); }
+.hero-content { padding: var(--space-5) var(--space-2) var(--space-4); }
+.hero h1 { font-size: clamp(2.5rem, 4.4vw, 4.25rem); margin: 0 0 var(--space-3); }
 .hero h1 em { font-style: italic; color: var(--color-primary); }
+.hero .lead { margin-bottom: var(--space-3); }
+.hero-media { margin: 0; }
+.hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 55% center;
+  background: var(--color-muted);
+}
+@media (min-width: 768px) {
+  .hero-content { padding-left: var(--space-4); padding-right: var(--space-4); }
+}
+@media (min-width: 960px) {
+  /* Outer columns absorb the space beyond --max; inner columns match .container's content width */
+  .hero-grid {
+    display: grid;
+    grid-template-columns:
+      minmax(var(--space-4), 1fr)
+      minmax(0, calc((var(--max) - 2 * var(--space-4)) * 0.5))
+      minmax(0, calc((var(--max) - 2 * var(--space-4)) * 0.5))
+      minmax(var(--space-4), 1fr);
+    min-height: min(78vh, 720px);
+  }
+  .hero-content {
+    grid-column: 2;
+    align-self: center;
+    padding: var(--space-6) var(--space-5) var(--space-6) 0;
+  }
+  .hero-media { grid-column: 3 / 5; position: relative; }
+  .hero-media img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+}
 
 .page-hero { padding: var(--space-5) 0 var(--space-4); }
 @media (min-width: 960px) { .page-hero { padding: var(--space-6) 0 var(--space-5); } }
