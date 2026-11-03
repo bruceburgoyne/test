@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "microsite",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve@14.2.4", "-l", "4321", "."],
-      "port": 4321
+      "runtimeExecutable": "/opt/homebrew/opt/node@24/bin/npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "4321"],
+      "port": 4321,
+      "env": { "PATH": "/opt/homebrew/opt/node@24/bin:/usr/bin:/bin" }
     }
   ]
 }

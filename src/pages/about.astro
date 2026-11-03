@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getAboutPage } from '../lib/content.js';
+
+const page = await getAboutPage();
+const number = (i) => String(i + 1).padStart(2, '0');
+---
+<Layout title="About" description={page.seoDescription} current="about">
+  <section class="page-hero">
+    <div class="container">
+      {page.eyebrow && <p class="eyebrow">{page.eyebrow}</p>}
+      <h1>{page.headline}</h1>
+      {page.intro && <p class="lead">{page.intro}</p>}
+    </div>
+  </section>
+
+  {page.story.length > 0 && (
+    <section class="section">
+      <div class="container split">
+        <div class="split-label reveal">
+          {page.storyEyebrow && <p class="eyebrow">{page.storyEyebrow}</p>}
+        </div>
+        <div class="prose reveal">
+          {page.story.map((paragraph, i) => <p class={i === 0 ? 'drop-cap' : undefined}>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {page.principles.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          {page.principlesEyebrow && <p class="eyebrow">{page.principlesEyebrow}</p>}
+          <h2>{page.principlesHeading}</h2>
+        </div>
+        <ol class="principles">
+          {page.principles.map((principle, i) => (
+            <li class="principle reveal">
+              <span class="index-num">{number(i)}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.description}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )}
+
+  <CtaBand heading={page.cta.heading} text={page.cta.text} />
+</Layout>
